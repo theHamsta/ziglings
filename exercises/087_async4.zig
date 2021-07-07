@@ -15,8 +15,7 @@ pub fn main() void {
     var foo_frame = async foo();
 
     while (global_counter <= 5) {
-        print("{} ", .{global_counter});
-        ???
+        resume foo_frame;
     }
 
     print("\n", .{});
@@ -24,7 +23,8 @@ pub fn main() void {
 
 fn foo() void {
     while (true) {
-        ???
-        ???
+        print("{} ", .{global_counter});
+        global_counter += 1;
+        suspend {}
     }
 }

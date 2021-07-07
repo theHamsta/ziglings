@@ -53,7 +53,7 @@ pub fn main() void {
 
     // So now we have a zero-terminated array and a many-item
     // pointer that reference the same data: a sequence of
-    // numbers that both ends in and CONTAINS the sentinal value.
+    // numbers that both ends in and CONTAINS the sentinel value.
     //
     // Attempting to loop through and print both of these should
     // demonstrate how they are similar and different.
@@ -83,7 +83,7 @@ fn printSequence(my_seq: anytype) void {
             print("Array:", .{});
 
             // Loop through the items in my_seq.
-            for (???) |s| {
+            for (my_seq) |s| {
                 print("{}", .{s});
             }
         },
@@ -95,7 +95,7 @@ fn printSequence(my_seq: anytype) void {
             // Loop through the items in my_seq until we hit the
             // sentinel value.
             var i: usize = 0;
-            while (??? != my_sentinel) {
+            while (my_seq[i] != my_sentinel) {
                 print("{}", .{my_seq[i]});
                 i += 1;
             }
